@@ -130,7 +130,7 @@
 /**
  * ADMIN Campaign scripts
  */
- #message_scripts {
+#message_scripts {
  	background: #fff;
  	border-left: 4px solid #00bbff;
  	-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
@@ -138,4 +138,44 @@
  	margin: 20px 0px;
  	padding: 1px 12px;
  	/* color: #1891ba; */
- }
+}
+#woocommerce-campaign-scripts textarea {
+ 	width: 100%;
+ 	padding: 10px;
+ 	background: #F1F1F1;
+ 	box-shadow: none;
+ 	border-radius: 5px;
+ 	height: 50px;
+}
+
+#woocommerce-campaign-scripts .script_container .script_action {
+  display: none;
+}
+#woocommerce-campaign-scripts .script_container:hover .script_action {
+  display: inline;
+}
+.script_action .copy_script {
+  background: #c0c0c0;
+  text-decoration: none;
+  font-size: 10px;
+  display: inline-block;
+  position: absolute;
+  margin-left: -65px;
+  color: #666;
+  margin-top: 5px;
+  padding: 6px 7px;
+  line-height: 1em;
+  border-radius: 3px;
+  min-width: 46px;
+}
+.script_action .copy_script:before {
+  content: "\f105";
+  font-family: dashicons;
+  font-size: 19px;
+  display: inline-block;
+  vertical-align: middle;
+}
+#woocommerce-campaign-scripts textarea.copied {
+	background: #b5ecff;
+	border-color: #27b9ea;
+}

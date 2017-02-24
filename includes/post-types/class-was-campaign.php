@@ -15,6 +15,9 @@ class WooAds_Campaigns {
 
   function actions() {
     add_action('init', array($this, 'create_custom_post_type'));
+    add_action('init', array($this, 'add_script_rules' ));
+    add_action('wp', array($this, 'show_script' ));
+    add_filter('query_vars', array($this,  'add_query_vars_filter' ));
   }
 
   /**
@@ -57,4 +60,52 @@ class WooAds_Campaigns {
   	register_post_type( 'was_campaign', $args );
   }
 
+  /**
+   * Add scripts rules
+   */
+  function add_script_rules() {
+    add_rewrite_rule(
+      "was_campaign/([^/]+)/([^/]+).js?",
+      'index.php?was_campaign=$matches[1]&was_banner=$matches[2]&was_type=javascript',
+      "top"
+    );
+  }
+
+  /**
+   * Add query vars
+   */
+  function add_query_vars_filter( $vars ){
+    $vars[] = "was_campaign";
+    $vars[] = "was_banner";
+    $vars[] = "was_type";
+    return $vars;
+  }
+
+  /**
+   * Show script content
+   */
+  function show_script() {
+    $campaign = get_query_var('was_campaign');
+    if ($campaign) {
+      $campaign = get_post($campaign);
+      if ($campaign && $campaign->post_type == 'was_campaign') {
+        global $wpdb;
+        $size = get_query_var('was_banner');
+        $banner_id = $wpdb->get_var($wpdb->prepare("SELECT post_id as ID FROM {$wpdb->postmeta} WHERE meta_key = %s AND meta_value = %d ORDER BY rand() LIMIT 1", '_campaign_banner_'.$size, $campaign->ID));
+        if ($banner_id) {
+          $image_src = wp_get_attachment_image( $banner_id, 'full' );
+          if ($image_src) {
+            $product_id = $wpdb->get_var($wpdb->prepare("SELECT meta_value as ID FROM {$wpdb->postmeta} WHERE meta_key = '_was_banner' AND post_id = %d", $banner_id));
+            if ($product_id) {
+              header('Content-type: text/javascript');
+              ?>
+              document.write('<a href="<?php echo get_permalink($product_id); ?>" target="_blank"><?php echo $image_src; ?></a>');
+              <?php
+              exit();
+            }
+          }
+        }
+      }
+    }
+  }
 }

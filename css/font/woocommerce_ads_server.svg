@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2017 by original authors @ fontello.com</metadata>
+<defs>
+<font id="woocommerce_ads_server" horiz-adv-x="1000" >
+<font-face font-family="woocommerce_ads_server" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="logo" unicode="&#xe800;" d="M156 850c-87 0-157-71-156-157l0-522c0-86 70-156 157-156l338 0 296-165-67 165 208 0c87 0 157 70 157 156l0 522c0 87-70 157-157 157z m500-74c0 0 1 0 2 0 0 0 1 0 2 0 0 0 142 23 195-240 20-145-75-207-111-207l-271 0 85-202c1-9 0-17-14-19l-113-2c-20-1-24 9-25 23l-34 201-43-1c0 0-61-2-94 74-36 83 4 131 14 137l341 207c21 13 46 28 66 29z m9-42c-3 0-6 0-9 0-62-9-95-83-73-190 22-106 86-178 149-179 55-1 101 87 79 193-21 102-86 177-146 176z m-3-108c26 0 52-29 62-69 10-44-3-86-30-92-28-7-59 24-69 68-11 44 2 86 30 93 2 0 5 0 7 0z" horiz-adv-x="1089" />
+</font>
+</defs>
+</svg>

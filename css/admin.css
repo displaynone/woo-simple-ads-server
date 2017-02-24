@@ -1,0 +1,141 @@
+
+@font-face {
+  font-family: 'woocommerce_ads_server';
+  src: url('./font/woocommerce_ads_server.eot?98399812');
+  src: url('./font/woocommerce_ads_server.eot?98399812#iefix') format('embedded-opentype'),
+       url('./font/woocommerce_ads_server.woff?98399812') format('woff'),
+       url('./font/woocommerce_ads_server.ttf?98399812') format('truetype'),
+       url('./font/woocommerce_ads_server.svg?98399812#woocommerce_ads_server') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.post-type-was_campaign .wrap h1:before {content: "\e800"; font-size: 24px; font-family: 'woocommerce_ads_server'; float: left; padding-right: 5px;}
+#menu-posts-was_campaign .wp-menu-image:before {content: "\e800"; font-family: 'woocommerce_ads_server'; font-size: 18px; padding-top: 11px;}
+
+/**
+ * ADMIN Banners
+ */
+.product_banners .image {
+	width: calc(20% - 6px);
+	display: inline-block;
+	vertical-align: top;
+	padding: 3px;
+	border: 1px solid #f0f0f0;
+	margin: 0 5px 5px 0;
+	box-sizing: border-box;
+  position: relative;
+}
+.product_banners .product_banners_group_468x60 .image {
+  width: calc(33.33333% - 6px);
+}
+.product_banners_group_120x600 .image, .product_banners_group_160x600 .image{
+	width: calc(10% - 6px);
+}
+.product_banners .image .actions {
+  position: absolute;
+  top: 2px;
+  right: 6px;
+  margin: 0px;
+  padding: 0px;
+  display: none;
+}
+.product_banners .image:hover .actions {
+  display: block;
+}
+.product_banners .delete:before {
+  content: "×";
+  font-size: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  width: 20px;
+  background: #c3c3c3;
+  text-align: center;
+  line-height: 20px;
+  color: #fff;
+  line-height: 0px;
+  font-weight: bold;
+  padding: 8px 0 12px;
+  vertical-align: middle;
+}
+.product_banners .image img {max-width: 100%; height: auto;}
+
+/**
+ * Campaigns
+ */
+.campaign_products .product img {
+ 	max-width: 50px;
+ 	padding-right: 5px;
+ 	vertical-align: middle;
+}
+.campaign_products .product {
+	padding: 2px 0;
+}
+.button.delete-button {
+	background-color: #bc0000;
+	color: #f0f0f0;
+	border-color: #9c0000;
+}
+.button.delete-button:hover {
+  background-color: #9c0000;
+	color: #f0f0f0;
+	border-color: #7c0000;
+}
+.campaign_products .product .button.delete-button {
+  vertical-align: middle;
+  margin-left: 15px;
+}
+.product_tooltip {
+	border-bottom: 1px dotted #008EC2;
+	display: inline-block;
+	margin-left: 20px;
+	cursor: help;
+  position: relative;
+}
+.banners_help {
+  display: none;
+}
+.banners_help::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	border-color: transparent transparent #333;
+	border-width: 0 10px 10px 10px;
+	display: block;
+	margin-top: -10px;
+	border-style: solid;
+	width: 0;
+	height: 0;
+	margin-left: 95px;
+}
+.product_tooltip:hover .banners_help {
+	display: block;
+	position: absolute;
+	background: #333;
+	font-size: 11px;
+	padding: 10px;
+	border-radius: 5px;
+	min-width: 200px;
+	color: #e6e6e6;
+	left: -100px;
+	margin-top: 20px;
+	z-index: 100;
+	margin-left: 50%;
+}
+.banners_help p {
+  padding: 0;
+  margin: 0;
+}
+
+/**
+ * ADMIN Campaign scripts
+ */
+ #message_scripts {
+ 	background: #fff;
+ 	border-left: 4px solid #00bbff;
+ 	-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+ 	box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+ 	margin: 20px 0px;
+ 	padding: 1px 12px;
+ 	/* color: #1891ba; */
+ }

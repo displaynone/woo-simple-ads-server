@@ -33,6 +33,7 @@ class WooAds_Meta_Box_Campaign_Scripts {
 		<?php
 		$sizes = WooAds_Banner::get_sizes();
 		$banners = $wpdb->get_results($wpdb->prepare("SELECT meta_key FROM {$wpdb->postmeta} WHERE meta_key like %s AND meta_value = %d GROUP BY meta_key", '_campaign_banner_%', $post->ID));
+		
 		foreach($banners as $banner) {
 			$size = str_replace('_campaign_banner_', '', $banner->meta_key);
 			echo '<h3>'.$sizes[$size].'</h3>';

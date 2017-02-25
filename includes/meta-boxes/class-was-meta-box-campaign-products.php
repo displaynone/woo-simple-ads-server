@@ -64,7 +64,7 @@ class WooAds_Meta_Box_Campaign_Products {
 			      }
 			      if ($count == 0) $help .= '<p>'.__('No banners', 'displaynone').'</p>';
 			      $help .= '</div>';
-			      $help = ' <div class="product_tooltip"> '.$count.__('banners', 'displaynone').' '.$help.'</div>';
+			      $help = ' <div class="product_tooltip"> '.$count.' '.__('banners', 'displaynone').' '.$help.'</div>';
 			      $products_list .= '<div class="product" id="product-'.$product->ID.'" data-product-id="'.$product->ID.'" ><a href="'. $link. '" target="_blank"><img src="'.$thumb.'" />'.$product->post_title.'</a>'.$help.' <button class="button delete-button">'.__('Delete', 'displaynone').'</button></div>';
 					}
 				}
@@ -125,7 +125,7 @@ class WooAds_Meta_Box_Campaign_Products {
     $products_ids = isset( $_POST['campaign_products'] ) ? array_filter( explode( ',', wc_clean( $_POST['campaign_products'] ) ) ) : array();
 		global $wpdb;
 		$in = implode(", ", $products_ids);
-		$wpdb->query($wpdb->prepare("delete from {$wpdb->postmeta} where meta_key = '_campaign_banner' and meta_value = %d", $post_id));
+		$wpdb->query($wpdb->prepare("delete from {$wpdb->postmeta} where meta_key like %s and meta_value = %d", '_campaign_banner%', $post_id));
 //		$wpdb->query($wpdb->prepare("delete from {$wpdb->postmeta} where meta_key = '_campaign_banner' and meta_value = %d", $post_id));
 //		$wpdb->query($wpdb->prepare("delete from {$wpdb->postmeta} where meta_key = '_campaign_banner' and meta_value = %d", $post_id));
 

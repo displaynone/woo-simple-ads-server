@@ -120,13 +120,14 @@ class WooAds_Meta_Box_Product_Banners {
 
     $attachment_ids = isset( $_POST['product_image_banner'] ) ? array_filter( explode( ',', wc_clean( $_POST['product_image_banner'] ) ) ) : array();
 		global $wpdb;
-		$wpdb->query($wpdb->prepare("delete from {$wpdb->postmeta} where post_id = %s and meta_key = '_was_banner'", $post_id));
-		$wpdb->query($wpdb->prepare("delete from {$wpdb->postmeta} where post_id = %s and meta_key = '_was_banner_size'", $post_id));
+		$wpdb->query($wpdb->prepare("delete pm from {$wpdb->postmeta} pm, {$wpdb->postmeta} wb where wb.meta_value = %d and wb.meta_key = '_was_banner' and pm.post_id = wb.post_id and pm.meta_key = '_was_banner_size' ", $post_id));
+		$wpdb->query($wpdb->prepare("delete pm from {$wpdb->postmeta} pm, {$wpdb->postmeta} wb where wb.meta_value = %d and wb.meta_key = '_was_banner' and pm.post_id = wb.post_id and pm.meta_key = '_was_banner_size_type' ", $post_id));
+		$wpdb->query($wpdb->prepare("delete from {$wpdb->postmeta} where meta_value = %s and meta_key = '_was_banner'", $post_id));
     foreach($attachment_ids as $id) {
-			update_post_meta($id, '_was_banner', $post_id);
+			add_post_meta($id, '_was_banner', $post_id);
 			$attach_meta = wp_get_attachment_metadata($id);
-			update_post_meta($id, '_was_banner_size', array($attach_meta['width'], $attach_meta['height']));
-			update_post_meta($id, '_was_banner_size_type', WooAds_Banner::get_size_by_meta($attach_meta['width'], $attach_meta['height']));
+			add_post_meta($id, '_was_banner_size', array($attach_meta['width'], $attach_meta['height']));
+			add_post_meta($id, '_was_banner_size_type', WooAds_Banner::get_size_by_meta($attach_meta['width'], $attach_meta['height']));
     }
 		update_post_meta( $post_id, '_product_image_banner', implode( ',', $attachment_ids ) );
   }

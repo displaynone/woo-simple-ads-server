@@ -2,7 +2,7 @@
 /*
 Plugin Name: WooCommerce Simple Ads Server
 Description: Create ads campaigns for selling your own products in other webs
-Version: 0.1
+Version: 1.0
 Author: Luis Sacristán
 Author URI: http://sentidoweb.com
 */
